@@ -93,7 +93,9 @@ add_one(add_one(add_one(add_one(add_one(add_one(1))))))
 
 # EXPRESSIONS PLAYGROUND BEGINS
 
+8**(add_one(6)/5)
 
+34%(3*(add_one(add_one(5/2))))
 
 # EXPRESSIONS PLAYGROUND ENDS
 
