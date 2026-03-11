@@ -26,9 +26,9 @@ text = "" # This is called the accumulator variable
           # It's where we put our summary value
           # It starts off blank.
 
-for line in lines: # We go through lines item by item
+for x in lines: # We go through lines item by item
   # Inside this loop, `line` is the individual line
-  text = text + line # We append the line to our text
+  text = text + x # We append the line to our text
   text = text + "\n" # We add an `\n`, which means 'new line'
 
 print(text)
@@ -40,7 +40,7 @@ print(text)
 
 another_text = "\n".join(lines)
 # Uncomment this next line if you want to see it:
-# print(another_text)
+print(another_text)
 
 # `join` is actually little smarter — it only adds the `\n` character between
 # lines, not at the end also.
@@ -52,6 +52,10 @@ print("Function: add_up_numbers")
 
 # Add up all the numbers in the list
 def add_up_numbers(numbers):
+  total = 0
+  for x in numbers:
+    total = total + x 
+  return total 
   pass
 
 check_that_these_are_equal(
