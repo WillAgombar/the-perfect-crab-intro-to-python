@@ -28,9 +28,11 @@
 
 def play_game():
   board = [
-    [".", ".", "."],
-    [".", ".", "."],
-    [".", ".", "."]
+    [".", ".", ".", ".", "."],
+    [".", ".", ".", ".", "."],
+    [".", ".", ".", ".", "."],
+    [".", ".", ".", ".", "."],
+    [".", ".", ".", ".", "."]
   ]
   player = "X"
   while not is_game_over(board):
@@ -56,7 +58,11 @@ def print_board(board):
   return grid
 
 def make_move(board, row, column, player):
-  board[row][column] = player
+  if "." in board[row][column]:
+    board[row][column] = player
+  else:
+    print("Square taken pls try again")
+    play_game()
   return board
 
 
@@ -96,6 +102,12 @@ groups_to_check = [
   [(0, 2), (1, 1), (2, 0)]
 ]
 
+def is_draw(board):
+  for row in board:
+    if "." in row:
+      return False
+  return True
+
 def is_game_over(board):
   # We go through our groups
   for group in groups_to_check:
@@ -105,6 +117,10 @@ def is_game_over(board):
       if are_all_cells_the_same(board, group[0], group[1], group[2]):
         return True # We found a winning row!
         # Note that return also stops the function
+
+    if is_draw(board):
+      print("Draw")
+      return True
   return False # If we get here, we didn't find a winning row
 
 # And test it out:
