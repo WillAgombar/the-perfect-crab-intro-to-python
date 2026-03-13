@@ -28,6 +28,24 @@ print("")
 print("Function: report_long_words")
 
 def report_long_words(words):
+  result = []
+  greater_than_ten = []
+  no_hyphen = []
+  elipsis_limit = []
+  for word in words:
+    if len(word) > 10:
+      greater_than_ten.append(word)
+  for word in greater_than_ten:
+    if "-" not in word:
+      no_hyphen.append(word)
+  print(no_hyphen)
+  for word in no_hyphen:
+    if len(word) > 15:
+      shortened_word = word.replace(word[15:], "...")
+      result.append(shortened_word)
+    else:
+      result.append(word)
+  return "These words are quite long: " + ", ".join(result)
   pass
 
 check_that_these_are_equal(
